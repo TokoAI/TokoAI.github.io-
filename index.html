@@ -375,7 +375,19 @@
         // 每10秒切换一次广告
         setInterval(rotateAd, 10000);
     </script>
+    <script>
+      // 添加事件监听器，当输入框获得焦点时触发
+    document.getElementById('password').addEventListener('keyup', function(event) {
+    // 检查按下的键是否是回车键（键码 13）
+    if (event.key === 'Enter') {
+        // 阻止默认的回车键行为
+        event.preventDefault();
+        // 调用验证函数
+        checkPassword();
+    }
+});
 
+    </script>
     <!-- Coze SDK -->
       <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/cn/index.js"></script>
       <script>
