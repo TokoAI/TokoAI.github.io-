@@ -339,8 +339,7 @@
         </div>
     </footer>
 
-     <script>
-        // 将所有 JavaScript 代码移到这里，确保在全局作用域中定义函数
+    <script>
         function showTooltip() {
             var tooltip = document.getElementById('tooltip');
             tooltip.classList.add('show');
@@ -354,11 +353,10 @@
         function checkPassword() {
             var password = document.getElementById('password').value;
             if (password === 'TokoAI2023') { // 请将此处的密码更改为您想要的密码
-                document.querySelector('.login-container').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-                document.getElementById('footer').style.display = 'block';
-                document.getElementById('adContainer').style.display = 'block';
-                startAdRotation(); // 开始广告轮播
+                document.querySelector('.login-form').style.display = 'none';
+                document.getElementById('footer').style.display = 'block'; // 显示页脚
+                document.getElementById('adContainer').style.display = 'block'; // 显示广告
             } else {
                 alert('验证码错误，请重试。');
             }
@@ -374,32 +372,20 @@
             document.getElementById(`ad${currentAd}`).classList.add('active');
         }
 
-        function startAdRotation() {
-            // 每10秒切换一次广告
-            setInterval(rotateAd, 10000);
-        }
-
-        // 为动画标题添加事件监听器
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedTitle = document.getElementById('animatedTitle');
-            if (animatedTitle) {
-                animatedTitle.addEventListener('mouseover', function() {
-                    this.style.color = '#0d47a1';
-                });
-                animatedTitle.addEventListener('mouseout', function() {
-                    this.style.color = '#1a73e8';
-                });
-            }
-        });
+        // 每10秒切换一次广告
+        setInterval(rotateAd, 10000);
     </script>
 
     <!-- Coze SDK -->
     <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/oversea/index.js"></script>
     <script>
         new CozeWebSDK.WebChatClient({
-            config: {
-                // ... (Coze SDK 配置)
-            }
+          config: {
+            bot_id: '7398362498003091463',
+          },
+          componentProps: {
+            title: 'Coze',
+          },
         });
     </script>
 </body>
