@@ -289,9 +289,9 @@
     <div class="main-container">
         <div class="ad-container" id="adContainer">
             <div class="ad-content active" id="ad1">
-                <div class="ad-title">探索最新集成式大模型软件</div>
-                <div class="ad-description">Chatgpt4o、Claude3.5、gemini1.5均可无限调用。</div>
-                <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">了解更多</a>
+                <div class="ad-title">探索TokoAI的高级账号服务</div>
+                <div class="ad-description">解锁更多AI功能，提升您的工作效率。享受更快的响应速度和更高的使用限额。</div>
+                <a href="#" class="ad-cta">了解更多</a>
             </div>
             <div class="ad-content" id="ad2">
                 <div class="ad-title">TokoAI专业版限时优惠</div>
@@ -339,7 +339,8 @@
         </div>
     </footer>
 
-    <script>
+     <script>
+        // 将所有 JavaScript 代码移到这里，确保在全局作用域中定义函数
         function showTooltip() {
             var tooltip = document.getElementById('tooltip');
             tooltip.classList.add('show');
@@ -353,10 +354,11 @@
         function checkPassword() {
             var password = document.getElementById('password').value;
             if (password === 'TokoAI2023') { // 请将此处的密码更改为您想要的密码
+                document.querySelector('.login-container').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-                document.querySelector('.login-form').style.display = 'none';
-                document.getElementById('footer').style.display = 'block'; // 显示页脚
-                document.getElementById('adContainer').style.display = 'block'; // 显示广告
+                document.getElementById('footer').style.display = 'block';
+                document.getElementById('adContainer').style.display = 'block';
+                startAdRotation(); // 开始广告轮播
             } else {
                 alert('验证码错误，请重试。');
             }
@@ -372,12 +374,33 @@
             document.getElementById(`ad${currentAd}`).classList.add('active');
         }
 
-        // 每10秒切换一次广告
-        setInterval(rotateAd, 10000);
+        function startAdRotation() {
+            // 每10秒切换一次广告
+            setInterval(rotateAd, 10000);
+        }
+
+        // 为动画标题添加事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedTitle = document.getElementById('animatedTitle');
+            if (animatedTitle) {
+                animatedTitle.addEventListener('mouseover', function() {
+                    this.style.color = '#0d47a1';
+                });
+                animatedTitle.addEventListener('mouseout', function() {
+                    this.style.color = '#1a73e8';
+                });
+            }
+        });
     </script>
 
     <!-- Coze SDK -->
     <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/oversea/index.js"></script>
     <script>
         new CozeWebSDK.WebChatClient({
-          config: {
+            config: {
+                // ... (Coze SDK 配置)
+            }
+        });
+    </script>
+</body>
+</html>
