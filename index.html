@@ -130,6 +130,32 @@
             color: #1a73e8;
             margin-bottom: 10px;
         }
+        .login-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-form input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .login-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #1557b0;
+        }
+        #content {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -137,33 +163,39 @@
         <div class="title-container">
             <h1>TokoAI验证码系统</h1>
         </div>
-        <div class="embed-container">
-            <iframe src="https://rows.com/embed/1S638y4tOCaC6FyGZp0ehgRgxRWwiO49SDW8ehhZz0yB/96ff2b23-5117-4508-ac65-e75b15d4ad14?_height=450" frameborder="0" allowfullscreen></iframe>
-            <div class="watermark-cover"></div>
+        <div class="login-form">
+            <input type="password" id="password" placeholder="请输入密码">
+            <button onclick="checkPassword()">登录</button>
         </div>
-        <div class="instructions" id="instructions">
-            <h2 onclick="toggleInstructions()">使用说明 <span></span></h2>
-            <div class="instructions-content">
-                <div class="instruction-cards">
-                    <div class="instruction-card">
-                        <i class="fas fa-user-check"></i>
-                        <p>这些验证码用于确认您的TokoAI账户。</p>
-                    </div>
-                    <div class="instruction-card">
-                        <i class="fas fa-redo-alt"></i>
-                        <p>每个验证码仅可使用一次，使用后将立即失效。</p>
-                    </div>
-                    <div class="instruction-card">
-                        <i class="fas fa-hourglass-half"></i>
-                        <p>验证码有效期为24小时，请在有效期内使用。</p>
-                    </div>
-                    <div class="instruction-card">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>如果您没有请求验证码，请忽略此页面。</p>
-                    </div>
-                    <div class="instruction-card">
-                        <i class="fas fa-user-secret"></i>
-                        <p>为保障账户安全，请勿向他人泄露您的验证码。</p>
+        <div id="content">
+            <div class="embed-container">
+                <iframe src="https://rows.com/embed/1S638y4tOCaC6FyGZp0ehgRgxRWwiO49SDW8ehhZz0yB/96ff2b23-5117-4508-ac65-e75b15d4ad14?_height=450" frameborder="0" allowfullscreen></iframe>
+                <div class="watermark-cover"></div>
+            </div>
+            <div class="instructions" id="instructions">
+                <h2 onclick="toggleInstructions()">使用说明 <span></span></h2>
+                <div class="instructions-content">
+                    <div class="instruction-cards">
+                        <div class="instruction-card">
+                            <i class="fas fa-user-check"></i>
+                            <p>这些验证码用于确认您的TokoAI账户。</p>
+                        </div>
+                        <div class="instruction-card">
+                            <i class="fas fa-redo-alt"></i>
+                            <p>每个验证码仅可使用一次，使用后将立即失效。</p>
+                        </div>
+                        <div class="instruction-card">
+                            <i class="fas fa-hourglass-half"></i>
+                            <p>验证码有效期为24小时，请在有效期内使用。</p>
+                        </div>
+                        <div class="instruction-card">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>如果您没有请求验证码，请忽略此页面。</p>
+                        </div>
+                        <div class="instruction-card">
+                            <i class="fas fa-user-secret"></i>
+                            <p>为保障账户安全，请勿向他人泄露您的验证码。</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -174,6 +206,16 @@
         function toggleInstructions() {
             var instructions = document.getElementById('instructions');
             instructions.classList.toggle('expanded');
+        }
+
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+            if (password === 'TokoAI2023') { // 请将此处的密码更改为您想要的密码
+                document.getElementById('content').style.display = 'block';
+                document.querySelector('.login-form').style.display = 'none';
+            } else {
+                alert('密码错误，请重试。');
+            }
         }
     </script>
 </body>
