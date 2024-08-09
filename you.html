@@ -351,6 +351,13 @@
 
         // 每10秒切换一次广告
         setInterval(rotateAd, 10000);
+         function toggleUsageGuide() {
+            var content = document.getElementById('usage-content');
+            var icon = document.getElementById('usage-icon');
+            content.classList.toggle('active');
+            icon.classList.toggle('fa-chevron-up');
+            icon.classList.toggle('fa-chevron-down');
+        }
     </script>
     <!-- Coze SDK -->
     <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/cn/index.js"></script>
