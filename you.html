@@ -27,10 +27,9 @@
             background-color: #ffffff;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             border-radius: 12px;
-            padding: 20px;
-            width: 95%;
-            max-width: 1200px;
-            margin-bottom: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 800px;
         }
         .title-container {
             text-align: center;
@@ -57,13 +56,10 @@
         }
         .embed-container {
             position: relative;
-            width: 100%;
+            padding-bottom: 56.25%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             overflow: hidden;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 100%;
         }
         .embed-container iframe {
             position: absolute;
@@ -72,53 +68,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-        .ad-container {
-            width: 100%;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 15px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            border-radius: 12px;
-        }
-        .ad-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: none;
-            text-align: center;
-        }
-        .ad-content.active {
-            display: block;
-        }
-        .ad-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a73e8;
-            margin-bottom: 10px;
-        }
-        .ad-description {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .ad-cta {
-            display: inline-block;
-            background-color: #1a73e8;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-        .ad-cta:hover {
-            background-color: #1557b0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         footer {
             background: linear-gradient(135deg, #1a73e8, #0d47a1);
@@ -196,27 +145,51 @@
             align-items: center;
             margin: 5px 10px;
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .embed-container {
-                padding-bottom: 75%; /* 4:3 Aspect Ratio for mobile */
-            }
-            .footer-content {
-                flex-direction: column;
-            }
-            .footer-text {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            .customer-service {
-                flex-direction: column;
-            }
+        .ad-container {
+            width: 100%;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .ad-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: none;
+            text-align: center;
+        }
+        .ad-content.active {
+            display: block;
+        }
+        .ad-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+        .ad-description {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .ad-cta {
+            display: inline-block;
+            background-color: #1a73e8;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .ad-cta:hover {
+            background-color: #1557b0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -245,7 +218,7 @@
                 <h1>TokoAI</h1>
             </div>
             <div class="embed-container">
-                <iframe src="https://rows.com/embed/1S638y4tOCaC6FyGZp0ehgRgxRWwiO49SDW8ehhZz0yB/d892613c-4005-4ff3-a508-6eadc7052bf9?_height=450" class="rows-embed" frameborder="0" style="border: 1px solid #EAEAEA; border-radius: 4px;"></iframe>
+                <iframe src="https://rows.com/embed/1S638y4tOCaC6FyGZp0ehgRgxRWwiO49SDW8ehhZz0yB/d892613c-4005-4ff3-a508-6eadc7052bf9?_height=450" class="rows-embed" frameborder="0" width="100%" height="450" style="max-width: 100%; border: 1px solid #EAEAEA; border-radius: 4px;"></iframe>
             </div>
         </div>
     </div>
