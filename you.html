@@ -191,6 +191,81 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+                .usage-guide {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .usage-header {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .usage-header:hover {
+            background: linear-gradient(135deg, #1557b0, #0a2e6b);
+        }
+
+        .usage-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .usage-content.active {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .usage-step {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background-color: #1a73e8;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .usage-note {
+            background-color: #f0f4f8;
+            border-left: 4px solid #1a73e8;
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-style: italic;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .usage-content.active {
+                max-height: 600px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -219,6 +294,29 @@
             </div>
             <div class="embed-container">
                 <iframe src="https://rows.com/embed/1S638y4tOCaC6FyGZp0ehgRgxRWwiO49SDW8ehhZz0yB/d892613c-4005-4ff3-a508-6eadc7052bf9?_height=450" class="rows-embed" frameborder="0" width="100%" height="450" style="max-width: 100%; border: 1px solid #EAEAEA; border-radius: 4px;"></iframe>
+            </div>
+                        <div class="usage-guide">
+                <div class="usage-header" onclick="toggleUsageGuide()">
+                    <span>使用方法</span>
+                    <i class="fas fa-chevron-down" id="usage-icon"></i>
+                </div>
+                <div class="usage-content" id="usage-content">
+                    <div class="usage-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">使用 vltyewz@hotmail.com 进行官网登录</div>
+                    </div>
+                    <div class="usage-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">等待约1分钟，验证码将出现在上方表格中</div>
+                    </div>
+                    <div class="usage-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">如遇问题，请联系闲鱼客服</div>
+                    </div>
+                    <div class="usage-note">
+                        注意：如果闲鱼客服无法解决您的问题，请联系页面底部提供的微信客服
+                    </div>
+                </div>
             </div>
         </div>
     </div>
