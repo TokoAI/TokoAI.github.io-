@@ -349,14 +349,16 @@
             var tooltip = document.getElementById('tooltip');
             tooltip.classList.remove('show');
         }
-
         function checkPassword() {
             var password = document.getElementById('password').value;
-            if (password === 'TokoAI2023') { // 请将此处的密码更改为您想要的密码
+            if (password === 'TokoAI2023') {
+                // 原有的逻辑保持不变
                 document.getElementById('content').style.display = 'block';
                 document.querySelector('.login-form').style.display = 'none';
-                document.getElementById('footer').style.display = 'block'; // 显示页脚
-                document.getElementById('adContainer').style.display = 'block'; // 显示广告
+                document.getElementById('footer').style.display = 'block';
+                document.getElementById('adContainer').style.display = 'block';
+            } else if (password === 'you') { // 替换 'SpecialPassword' 为您想要的特定密码
+                window.location.href = 'https://tokoai.github.io/you.html';
             } else {
                 alert('验证码错误，请重试。');
             }
