@@ -95,6 +95,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
+            text-transform: uppercase;
         }
         .login-form input:focus {
             border-color: #1a73e8;
@@ -173,7 +174,7 @@
                 <h1>TokoAI验证码系统</h1>
             </div>
             <form class="login-form" onsubmit="checkPassword(event)">
-                <input type="text" inputmode="numeric" pattern="[0-9]*" id="password" placeholder="请输入验证码" onfocus="showTooltip()" onblur="hideTooltip()">
+                <input type="text" id="password" placeholder="请输入验证码" onfocus="showTooltip()" onblur="hideTooltip()" autocomplete="off" maxlength="5">
                 <button type="submit">验证</button>
                 <div class="tooltip" id="tooltip">
                     请输入闲鱼给您的专属验证码
@@ -196,7 +197,7 @@
 
         function checkPassword(event) {
             event.preventDefault();
-            var password = document.getElementById('password').value;
+            var password = document.getElementById('password').value.toLowerCase();
             if (password === 'per01') {
                 window.location.href = 'https://tokoai.github.io/per.html';
             } else if (password === 'you02') {
