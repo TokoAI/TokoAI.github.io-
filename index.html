@@ -141,170 +141,10 @@
             opacity: 1;
             transform: translateX(-50%) translateY(-10px);
         }
-        #content {
-            display: none;
-            width: 100%;
-        }
-        .embed-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-        }
-        .embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        footer {
-            background: linear-gradient(135deg, #1a73e8, #0d47a1);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 16px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 60%);
-            transform: rotate(30deg);
-            z-index: 1;
-        }
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-        .footer-text {
-            margin-right: 20px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-        .footer-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border: 2px solid white;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            background-color: rgba(255,255,255,0.1);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .footer-link:hover {
-            background-color: white;
-            color: #1a73e8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        .customer-service {
-            margin-top: 20px;
-            font-size: 14px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            background-color: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 25px;
-        }
-        .customer-service i {
-            margin-right: 5px;
-            font-size: 1.2em;
-        }
-        .customer-service span {
-            margin: 0 10px;
-        }
-        .customer-service-item {
-            display: flex;
-            align-items: center;
-            margin: 5px 10px;
-        }
-        .ad-container {
-            width: 100%;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 15px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .ad-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: none;
-            text-align: center;
-        }
-        .ad-content.active {
-            display: block;
-        }
-        .ad-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #1a73e8;
-            margin-bottom: 10px;
-        }
-        .ad-description {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .ad-cta {
-            display: inline-block;
-            background-color: #1a73e8;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-        .ad-cta:hover {
-            background-color: #1557b0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
     </style>
 </head>
 <body>
     <div class="main-container">
-        <div class="ad-container" id="adContainer">
-            <div class="ad-content active" id="ad1">
-                <div class="ad-title">探索TokoAI的高级账号服务</div>
-                <div class="ad-description">解锁更多AI功能，提升您的工作效率。享受更快的响应速度和更高的使用限额。</div>
-                <a href="#" class="ad-cta">了解更多</a>
-            </div>
-            <div class="ad-content" id="ad2">
-                <div class="ad-title">TokoAI专业版限时优惠</div>
-                <div class="ad-description">立即升级到专业版，享受50%折扣！获取高级AI模型和无限使用次数。</div>
-                <a href="#" class="ad-cta">立即升级</a>
-            </div>
-            <div class="ad-content" id="ad3">
-                <div class="ad-title">TokoAI新功能上线</div>
-                <div class="ad-description">体验我们最新的AI助手功能，为您的日常工作带来革命性的变化。</div>
-                <a href="#" class="ad-cta">免费试用</a>
-            </div>
-        </div>
-        
         <div class="container">
             <div class="title-container">
                 <h1>TokoAI验证码系统</h1>
@@ -314,31 +154,8 @@
                 <button onclick="checkPassword()">验证</button>
                 <div class="tooltip" id="tooltip">请输入闲鱼发给您的验证码</div>
             </div>
-            <div id="content">
-                <div class="embed-container">
-                    <iframe src="https://rows.com/embed/1S638y4tOCaC6FyGZp0ehgRgxRWwiO49SDW8ehhZz0yB/96ff2b23-5117-4508-ac65-e75b15d4ad14?_height=450" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            </div>
         </div>
     </div>
-
-    <footer id="footer" style="display: none;">
-        <div class="footer-content">
-            <p class="footer-text">寻找更多实惠的AI工具？</p>
-            <a href="https://tokoai.craft.me/intro" target="_blank" class="footer-link">探索TokoAI</a>
-        </div>
-        <div class="customer-service">
-            <div class="customer-service-item">
-                <i class="fab fa-weixin"></i>
-                <span>联系微信客服：TokoStephen</span>
-            </div>
-            <div class="customer-service-item">
-                <i class="far fa-clock"></i>
-                <span>工作时间：9:00 - 22:00</span>
-            </div>
-        </div>
-    </footer>
 
     <script>
         function showTooltip() {
@@ -350,58 +167,41 @@
             var tooltip = document.getElementById('tooltip');
             tooltip.classList.remove('show');
         }
+
         function checkPassword() {
             var password = document.getElementById('password').value;
             if (password === 'per01') {
-                // 原有的逻辑保持不变
-                document.getElementById('content').style.display = 'block';
-                document.querySelector('.login-form').style.display = 'none';
-                document.getElementById('footer').style.display = 'block';
-                document.getElementById('adContainer').style.display = 'block';
-            } else if (password === 'you02') { // 替换 'SpecialPassword' 为您想要的特定密码
+                window.location.href = 'https://tokoai.github.io/per.html';
+            } else if (password === 'you02') {
                 window.location.href = 'https://tokoai.github.io/you.html';
             } else {
                 alert('验证码错误，请重试。');
             }
         }
 
-        // 广告轮播功能
-        let currentAd = 1;
-        const totalAds = 3;
-
-        function rotateAd() {
-            document.getElementById(`ad${currentAd}`).classList.remove('active');
-            currentAd = currentAd % totalAds + 1;
-            document.getElementById(`ad${currentAd}`).classList.add('active');
-        }
-
-        // 每10秒切换一次广告
-        setInterval(rotateAd, 10000);
+        // 添加事件监听器，当输入框获得焦点时触发
+        document.getElementById('password').addEventListener('keyup', function(event) {
+            // 检查按下的键是否是回车键（键码 13）
+            if (event.key === 'Enter') {
+                // 阻止默认的回车键行为
+                event.preventDefault();
+                // 调用验证函数
+                checkPassword();
+            }
+        });
     </script>
-    <script>
-      // 添加事件监听器，当输入框获得焦点时触发
-    document.getElementById('password').addEventListener('keyup', function(event) {
-    // 检查按下的键是否是回车键（键码 13）
-    if (event.key === 'Enter') {
-        // 阻止默认的回车键行为
-        event.preventDefault();
-        // 调用验证函数
-        checkPassword();
-    }
-});
 
-    </script>
     <!-- Coze SDK -->
-      <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/cn/index.js"></script>
-      <script>
-          new CozeWebSDK.WebChatClient({
-            config: {
-              bot_id: '7395448151085645834',
-            },
-            componentProps: {
-              title: 'Coze',
-            },
-          });
-      </script>
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/cn/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+          config: {
+            bot_id: '7395448151085645834',
+          },
+          componentProps: {
+            title: 'Coze',
+          },
+        });
+    </script>
 </body>
 </html>
