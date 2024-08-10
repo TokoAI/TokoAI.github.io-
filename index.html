@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TokoAI登录</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
@@ -92,6 +92,9 @@
             margin-bottom: 20px;
             transition: all 0.3s ease;
             box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         .login-form input:focus {
             border-color: #1a73e8;
@@ -108,6 +111,9 @@
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         .login-form button:hover {
             background-color: #1557b0;
@@ -145,10 +151,15 @@
         }
         @media (max-width: 480px) {
             .container {
-                padding: 30px;
+                padding: 30px 20px;
             }
             h1 {
                 font-size: 2em;
+            }
+            .login-form input,
+            .login-form button {
+                font-size: 16px;
+                padding: 10px;
             }
         }
     </style>
@@ -162,7 +173,7 @@
                 <h1>TokoAI验证码系统</h1>
             </div>
             <div class="login-form">
-                <input type="password" id="password" placeholder="请输入验证码" onfocus="showTooltip()" onblur="hideTooltip()">
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="password" placeholder="请输入验证码" onfocus="showTooltip()" onblur="hideTooltip()">
                 <button onclick="checkPassword()">验证</button>
                 <div class="tooltip" id="tooltip">
                     请输入闲鱼给您的专属验证码
