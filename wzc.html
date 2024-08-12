@@ -54,6 +54,12 @@
             height: 3px;
             background: linear-gradient(90deg, transparent, #1a73e8, transparent);
         }
+        .test-content {
+            text-align: center;
+            font-size: 1.5em;
+            color: #1a73e8;
+            margin: 20px 0;
+        }
         footer {
             background: linear-gradient(135deg, #1a73e8, #0d47a1);
             color: white;
@@ -176,77 +182,34 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        #verification-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        #verification-input {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        #verify-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #1a73e8;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        #verify-button:hover {
-            background-color: #1557b0;
-        }
-        #error-message {
-            color: red;
-            margin-top: 10px;
-        }
-        .test-message {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a73e8;
-            text-align: center;
-            margin-top: 40px;
-        }
     </style>
 </head>
 <body>
     <div class="main-container">
+        <div class="ad-container" id="adContainer">
+            <div class="ad-content active" id="ad1">
+                <div class="ad-title">Monica无限版限时低价</div>
+                <div class="ad-description">无限制的gpt4o、claude3.5以及其他主流大模型的调用</div>
+                <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">了解更多</a>
+            </div>
+            <div class="ad-content" id="ad2">
+                <div class="ad-title">Perplexity Pro限时低价</div>
+                <div class="ad-description">目前最强AI搜索引擎，年费拼车只要160</div>
+                <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">立即升级</a>
+            </div>
+            <div class="ad-content" id="ad3">
+                <div class="ad-title">小模型无限使用套餐</div>
+                <div class="ad-description">4omini、claude hiku等小模型无限使用，一年仅需80</div>
+                <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">免费试用</a>
+            </div>
+        </div>
+        
         <div class="container">
             <div class="title-container">
                 <h1>TokoAI</h1>
             </div>
-            <div id="verification-form">
-                <input type="text" id="verification-input" placeholder="请输入验证码">
-                <button id="verify-button">验证</button>
-                <p id="error-message"></p>
-            </div>
-            <div id="main-content" style="display: none;">
-                <div class="ad-container" id="adContainer">
-                    <div class="ad-content active" id="ad1">
-                        <div class="ad-title">Monica无限版限时低价</div>
-                        <div class="ad-description">无限制的gpt4o、claude3.5以及其他主流大模型的调用</div>
-                        <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">了解更多</a>
-                    </div>
-                    <div class="ad-content" id="ad2">
-                        <div class="ad-title">Perplexity Pro限时低价</div>
-                        <div class="ad-description">目前最强AI搜索引擎，年费拼车只要160</div>
-                        <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">立即升级</a>
-                    </div>
-                    <div class="ad-content" id="ad3">
-                        <div class="ad-title">小模型无限使用套餐</div>
-                        <div class="ad-description">4omini、claude hiku等小模型无限使用，一年仅需80</div>
-                        <a href="https://tokoai.craft.me/l4Khob8hI980iB" class="ad-cta">免费试用</a>
-                    </div>
-                </div>
-                
-                <div class="test-message">
-                    WZC测试使用
-                </div>
+            <div class="test-content">
+                WZC测试使用
             </div>
         </div>
     </div>
@@ -281,16 +244,17 @@
 
         // 每10秒切换一次广告
         setInterval(rotateAd, 10000);
-
-        // 验证码功能
-        document.getElementById('verify-button').addEventListener('click', function() {
-            const input = document.getElementById('verification-input').value;
-            if (input === 'wzc') {
-                document.getElementById('verification-form').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-            } else {
-                document.getElementById('error-message').textContent = '验证码错误，请重试。';
-            }
+    </script>
+    <!-- Coze SDK -->
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/cn/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+          config: {
+            bot_id: '7395448151085645834',
+          },
+          componentProps: {
+            title: 'Coze',
+          },
         });
     </script>
 </body>
